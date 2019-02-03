@@ -7,20 +7,20 @@ class Test {
     private $name;
     private $number;
     private $arrayList;
+    private $managerFactory;
     
     public function __construct(
             \Training\Training_TestOM\Model\ManagerInterface $manager,
-//            object  $manager,
             string $name,
             int $number,
-            array $arrayList
+            array $arrayList,
+            \Training\Training_TestOM\Model\ManagerInterfaceFactory $managerFactory
         ){
             $this->manager = $manager;
             $this->name = $name;
             $this->number = $number;
-//            print ($my_number);
-//            print (gettype($my_number));
             $this->arrayList = $arrayList;
+            $this->managerFactory = $managerFactory;
     }
     
     public function log()
@@ -32,5 +32,8 @@ class Test {
         print($this->number);
         echo '<br>';
         print_r($this->arrayList);
+        echo '<br>';
+        $newManager = $this->managerFactory->create();
+        print_r(get_class($newManager));
     }
 }
