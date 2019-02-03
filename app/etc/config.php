@@ -192,6 +192,7 @@ return [
         'Temando_Shipping' => 1,
         'Training_Dependency2' => 0,
         'Training_Dependency' => 1,
+        'Training_TestOM' => 1,
         'Vertex_Tax' => 1
     ]
 ];
