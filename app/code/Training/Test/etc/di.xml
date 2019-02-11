@@ -3,7 +3,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
 
     <preference for="Training\Training_TestOM\Model\ManagerInterface" type="Training\Training_TestOM\Model\Manager"/>
-
+    
     <type name="Training\Training_TestOM\Model\Test">
         <arguments>
             <argument name="name" xsi:type="string">Custom String</argument>
@@ -13,5 +13,20 @@
                 <item name="item_2" xsi:type="number">6</item>
             </argument>
         </arguments>
-    </type>    
+    </type>
+    
+    <preference for="Magento\Framework\App\Router\NoRouteHandlerInterface" type="Training\Test\App\Router\NoRouteHandler"/>
+        
+    <type name="Magento\Framework\App\Router\NoRouteHandlerList">
+        <arguments>
+            <argument name="$objectManager" xsi:type="object">Training\Test\App\Router\CustomNoRouteHandler</argument>
+            <argument name="handlerClassesList" xsi:type="array">
+                <item name="default" xsi:type="array">
+                    <item name="class" xsi:type="string">Training\Test\App\Router\NoRouteHandler</item>
+                    <item name="sortOrder" xsi:type="string">100</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
 </config>
