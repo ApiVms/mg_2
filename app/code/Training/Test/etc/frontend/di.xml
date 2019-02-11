@@ -14,5 +14,8 @@
         <plugin name="training_test" type="Training\Test\Plugin\Controller\Product\View"
             sortOrder="1" disabled="false"/>
     </type>-->
+    
+        
+    <preference for="Magento\Framework\App\FrontControllerInterface" type="Training\Test\App\CustomFrontController" />
       
 </config>
