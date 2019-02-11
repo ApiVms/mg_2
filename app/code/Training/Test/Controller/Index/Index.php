@@ -20,9 +20,4 @@ class Index extends \Magento\Framework\App\Action\Action {
         
         return $resultRaw;
     }
-    
-//    public function execute()
-//    {
-//        $this->getResponse()->appendBody('simple text');
-//    }
 }
