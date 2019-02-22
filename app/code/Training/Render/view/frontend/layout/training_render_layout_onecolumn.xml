@@ -6,4 +6,6 @@
         <title>Onecolumn page</title>
     </head>
     
+    <referenceBlock name="testargument" remove="true"/>
+    
 </page>
