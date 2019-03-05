@@ -1,0 +1,24 @@
+<div data-bind="scope: 'randomReview'">
+<!--    <div style="background-color: greenyellow; height: 100px;" >
+        Colored block Training_Js::review.phtml
+    </div>-->
+<!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+
+<script type="text/x-magento-init">
+{
+    "*": {
+    "Magento_Ui/js/core/app": {
+        "components": {
+            "randomReview": {
+                "component": "Training_Js/js/review/sidebar-review",
+                    "config": {
+                        "template": "Training_Js/review/sidebar-review",
+                        "url": <?= json_encode($block->getUrl('js/review')) ?>
+                    }
+                }
+            }
+        }
+    }
+}
+</script>
