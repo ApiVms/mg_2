@@ -5,11 +5,13 @@ namespace Training\Feedback\Block;
 use \Magento\Framework\View\Element\Template\Context;
 use \Training\Feedback\Model\ResourceModel\Feedback\CollectionFactory;
 use \Magento\Framework\Stdlib\DateTime\Timezone;
+use \Training\Feedback\Model\ResourceModel\Feedback;
 
 class FeedbackList extends \Magento\Framework\View\Element\Template {
     
     const PAGE_SIZE = 5;
     
+    private $feedbackResource;
     private $collectionFactory;
     private $collection;
     private $timezone;
@@ -18,11 +20,13 @@ class FeedbackList extends \Magento\Framework\View\Element\Template {
         Context $context,
         CollectionFactory $collectionFactory,
         Timezone $timezone,
+        Feedback $feedbackResource,
         array $data = array()
     ) {
         parent::__construct($context, $data);
         
         $this->collectionFactory = $collectionFactory;
+        $this->feedbackResource = $feedbackResource;
         $this->timezone = $timezone;
     }
     
@@ -63,5 +67,12 @@ class FeedbackList extends \Magento\Framework\View\Element\Template {
     public function getFeedbackDate($feedback) {
         return $this->timezone->formatDateTime($feedback->getCreationTime());
     }
+    
+    public function getAllFeedbackNumber() {
+        return $this->feedbackResource->getAllFeedbackNumber();
+    }
+    
+    public function getActiveFeedbackNumber() {
+        return $this->feedbackResource->getActiveFeedbackNumber();
+    }
 }
-
